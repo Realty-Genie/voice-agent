@@ -10,10 +10,7 @@ export const WelcomeView = ({
   ref,
 }: React.ComponentProps<'div'> & WelcomeViewProps) => {
   useEffect(() => {
-    onStartCall()
-  }, [])
-  return (
-    <div ref={ref} className='h-screen overflow-hidden'>
-    </div>
-  );
+    onStartCall();
+  }, [onStartCall]);
+  return <div ref={ref} className="h-screen overflow-hidden"></div>;
 };

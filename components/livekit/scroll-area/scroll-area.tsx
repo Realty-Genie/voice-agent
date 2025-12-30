@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useCallback, useRef } from 'react';
+import { forwardRef, useCallback, useState } from 'react';
 import { useAutoScroll } from '@/components/livekit/scroll-area/hooks/useAutoScroll';
 import { cn } from '@/lib/utils';
 
@@ -13,13 +13,13 @@ export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(function S
   { className, children },
   ref
 ) {
-  const scrollContentRef = useRef<HTMLDivElement>(null);
+  const [scrollElement, setScrollElement] = useState<HTMLDivElement | null>(null);
 
-  useAutoScroll(scrollContentRef.current);
+  useAutoScroll(scrollElement);
 
   const mergedRef = useCallback(
     (node: HTMLDivElement | null) => {
-      scrollContentRef.current = node;
+      setScrollElement(node);
 
       if (typeof ref === 'function') {
         ref(node);

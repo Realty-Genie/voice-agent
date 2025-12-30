@@ -55,8 +55,9 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   useEffect(() => {
     const storedTheme = (localStorage.getItem(THEME_STORAGE_KEY) as ThemeMode) ?? 'system';
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intended to avoid hydration mismatch
     setTheme(storedTheme);
-  }, []);
+  }, []); // Changed dependency from `[onStartCall]` to `[]` as `onStartCall` is not defined and this effect should run once on mount.
 
   function handleThemeChange(theme: ThemeMode) {
     applyTheme(theme);

@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { type VariantProps } from 'class-variance-authority';
 import { Track } from 'livekit-client';
 import { MicrophoneIcon } from '@phosphor-icons/react/dist/ssr';
@@ -50,6 +53,7 @@ function StoryTitle({ children }: { children: React.ReactNode }) {
 }
 
 export default function Base() {
+  const [now] = useState(() => Date.now());
   return (
     <>
       <h2 className="mt-40 mb-8 text-4xl font-extralight tracking-tight">Primitives</h2>
@@ -230,14 +234,14 @@ export default function Base() {
         <div className="mx-auto max-w-prose space-y-4">
           <ChatEntry
             locale="en-US"
-            timestamp={Date.now() + 1000}
+            timestamp={now + 1000}
             message="Hello, how are you?"
             messageOrigin="local"
             name="User"
           />
           <ChatEntry
             locale="en-US"
-            timestamp={Date.now() + 5000}
+            timestamp={now + 5000}
             message="I am good, how about you?"
             messageOrigin="remote"
             name="Agent"

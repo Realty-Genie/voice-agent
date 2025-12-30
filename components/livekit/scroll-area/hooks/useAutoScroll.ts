@@ -5,6 +5,7 @@ const AUTO_SCROLL_THRESHOLD_PX = 100;
 export function useAutoScroll(scrollContentContainer?: Element | null) {
   useEffect(() => {
     function scrollToBottom() {
+      // eslint-disable-next-line react-hooks/immutability
       if (!scrollContentContainer) return;
 
       const distanceFromBottom =

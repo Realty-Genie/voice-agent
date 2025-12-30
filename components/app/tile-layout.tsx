@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Track } from 'livekit-client';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, spring } from 'motion/react';
 import {
   BarVisualizer,
   type TrackReference,
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 const MotionContainer = motion.create('div');
 
 const ANIMATION_TRANSITION = {
-  type: 'spring',
+  type: spring,
   stiffness: 675,
   damping: 75,
   mass: 1,

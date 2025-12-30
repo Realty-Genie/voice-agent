@@ -27,7 +27,7 @@ function getSourceIcon(source: Track.Source, enabled: boolean, pending = false) 
     case Track.Source.ScreenShare:
       return MonitorArrowUpIcon;
     default:
-      return React.Fragment;
+      return () => null;
   }
 }
 
@@ -41,7 +41,10 @@ export function TrackToggle({ source, pressed, pending, className, ...props }: T
 
   return (
     <Toggle pressed={pressed} aria-label={`Toggle ${source}`} className={cn(className)} {...props}>
-      <IconComponent weight="bold" className={cn(pending && 'animate-spin')} />
+      {React.createElement(IconComponent, {
+        weight: 'bold',
+        className: cn(pending && 'animate-spin'),
+      })}
       {props.children}
     </Toggle>
   );

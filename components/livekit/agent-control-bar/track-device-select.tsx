@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import { LocalAudioTrack, LocalVideoTrack } from 'livekit-client';
 import { useMaybeRoomContext, useMediaDeviceSelect } from '@livekit/components-react';
@@ -65,8 +65,9 @@ export function TrackDeviceSelect({
 
   // When the select opens, ensure that media devices are re-requested in case when they were last
   // requested, permissions were not granted
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setRequestPermissionsState(true);
     }
   }, [open]);

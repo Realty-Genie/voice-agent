@@ -1,7 +1,8 @@
-"use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { ArrowRight, Star, CheckCircle2, Play } from "lucide-react";
+'use client';
+
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ArrowRight, CheckCircle2, Play, Star } from 'lucide-react';
 
 interface HeroProps {
   onStartCall?: () => void;
@@ -9,9 +10,9 @@ interface HeroProps {
 
 export default function Hero({ onStartCall }: HeroProps) {
   return (
-    <div className="border mx-8 my-3 rounded-[2.5rem] bg-linear-to-b from-gray-300 to-gray-100 p-6 lg:p-10 flex flex-col lg:flex-row items-center lg:justify-between gap-8 relative overflow-hidden h-[calc(100vh-120px)]">
+    <div className="relative mx-8 my-3 flex h-[calc(100vh-120px)] flex-col items-center gap-8 overflow-hidden rounded-[2.5rem] border bg-linear-to-b from-gray-300 to-gray-100 p-6 lg:flex-row lg:justify-between lg:p-10">
       {/* Left Content */}
-      <div className="flex-1 space-y-4 lg:space-y-6 z-10">
+      <div className="z-10 flex-1 space-y-4 lg:space-y-6">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,15 +20,15 @@ export default function Hero({ onStartCall }: HeroProps) {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3"
         >
-          <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center">
-            <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white">
+              <div className="h-2 w-2 rounded-full bg-white"></div>
             </div>
           </div>
           <div>
             <p className="text-sm font-bold">20M+ User</p>
             <p className="text-sm text-gray-600">
-              Read Our <span className="underline font-semibold">Success Stories</span>
+              Read Our <span className="font-semibold underline">Success Stories</span>
             </p>
           </div>
         </motion.div>
@@ -39,12 +40,12 @@ export default function Hero({ onStartCall }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <h1
-            className="text-[10rem] lg:text-[12rem] font-medium tracking-tight text-black leading-tight"
-            style={{ fontFamily: "Radley, serif" }}
+            className="text-[10rem] leading-tight font-medium tracking-tight text-black lg:text-[12rem]"
+            style={{ fontFamily: 'Radley, serif' }}
           >
             Grow<sup className="text-8xl lg:text-8xl">+</sup>
           </h1>
-          <div className="w-full h-1 bg-black mt-3"></div>
+          <div className="mt-3 h-1 w-full bg-black"></div>
         </motion.div>
 
         {/* Subtitle */}
@@ -52,7 +53,7 @@ export default function Hero({ onStartCall }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base lg:text-lg text-gray-700 max-w-md leading-relaxed"
+          className="max-w-md text-base leading-relaxed text-gray-700 lg:text-lg"
         >
           Drive Sales Growth, And Harness Ai-Powered User Content — Up To 50× Faster.
         </motion.p>
@@ -71,8 +72,8 @@ export default function Hero({ onStartCall }: HeroProps) {
             </div>
             <div className="h-8 w-px bg-gray-300"></div>
             <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 fill-black" />
-              <span className="font-bold text-lg text-black">4.9</span>
+              <Star className="h-4 w-4 fill-black" />
+              <span className="text-lg font-bold text-black">4.9</span>
             </div>
           </div>
         </motion.div>
@@ -86,19 +87,19 @@ export default function Hero({ onStartCall }: HeroProps) {
         >
           <button
             onClick={onStartCall}
-            className="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center gap-2 text-sm"
+            className="flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
           >
             Try it Now
           </button>
-          <button className="text-black px-5 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm">
+          <button className="flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-black transition-colors hover:bg-gray-100">
             Our Pricing
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="h-4 w-4" />
           </button>
         </motion.div>
       </div>
 
       {/* Right Content - Image with Cards */}
-      <div className="flex-1 relative w-full lg:w-auto h-full flex items-center justify-center">
+      <div className="relative flex h-full w-full flex-1 items-center justify-center lg:w-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -106,7 +107,7 @@ export default function Hero({ onStartCall }: HeroProps) {
           className="relative w-full max-w-md"
         >
           {/* Main Image Container */}
-          <div className="relative w-full aspect-4/5 rounded-3xl overflow-hidden bg-linear-to-br from-orange-400 to-orange-500 max-h-[70vh]">
+          <div className="relative aspect-4/5 max-h-[70vh] w-full overflow-hidden rounded-3xl bg-linear-to-br from-orange-400 to-orange-500">
             <Image
               src="/sales.jpg"
               alt="Sales representative"
@@ -114,16 +115,16 @@ export default function Hero({ onStartCall }: HeroProps) {
               className="object-cover"
               priority
             />
-            
+
             {/* Play Button Overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg"
+                className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 lg:h-16 lg:w-16"
               >
-                <Play className="w-5 h-5 lg:w-6 lg:h-6 fill-black ml-1" />
+                <Play className="ml-1 h-5 w-5 fill-black lg:h-6 lg:w-6" />
               </motion.div>
             </div>
           </div>
@@ -134,15 +135,19 @@ export default function Hero({ onStartCall }: HeroProps) {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="absolute top-2 left-2 lg:top-4 lg:left-4 space-y-2"
+            className="absolute top-2 left-2 space-y-2 lg:top-4 lg:left-4"
           >
-            <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 lg:px-4 lg:py-2 rounded-full shadow-lg flex items-center gap-2">
-              <CheckCircle2 className="w-3 h-3 lg:w-4 lg:h-4 text-orange-500" />
-              <span className="text-xs lg:text-sm font-medium text-black">Want to know about investment?</span>
+            <div className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 shadow-lg backdrop-blur-sm lg:px-4 lg:py-2">
+              <CheckCircle2 className="h-3 w-3 text-orange-500 lg:h-4 lg:w-4" />
+              <span className="text-xs font-medium text-black lg:text-sm">
+                Want to know about investment?
+              </span>
             </div>
-            <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 lg:px-4 lg:py-2 rounded-full shadow-lg flex items-center gap-2 mr-7 lg:mr-8">
-              <CheckCircle2 className="w-3 h-3 lg:w-4 lg:h-4 text-blue-500" />
-              <span className="text-xs lg:text-sm font-medium text-black">Like to collaborate?</span>
+            <div className="mr-7 flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 shadow-lg backdrop-blur-sm lg:mr-8 lg:px-4 lg:py-2">
+              <CheckCircle2 className="h-3 w-3 text-blue-500 lg:h-4 lg:w-4" />
+              <span className="text-xs font-medium text-black lg:text-sm">
+                Like to collaborate?
+              </span>
             </div>
           </motion.div>
 
@@ -151,11 +156,11 @@ export default function Hero({ onStartCall }: HeroProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-white-900/90 border backdrop-blur-sm p-3 lg:p-4 rounded-2xl shadow-xl"
+            className="bg-white-900/90 absolute -top-2 -right-2 rounded-2xl border p-3 shadow-xl backdrop-blur-sm lg:-top-4 lg:-right-4 lg:p-4"
           >
-            <p className="text-[10px] lg:text-xs text-white/80 mb-0.5 lg:mb-1">UP TO</p>
-            <p className="text-3xl lg:text-4xl font-bold text-white mb-0.5 lg:mb-1">60%</p>
-            <p className="text-[10px] lg:text-xs text-white">More sales this week</p>
+            <p className="mb-0.5 text-[10px] text-white/80 lg:mb-1 lg:text-xs">UP TO</p>
+            <p className="mb-0.5 text-3xl font-bold text-white lg:mb-1 lg:text-4xl">60%</p>
+            <p className="text-[10px] text-white lg:text-xs">More sales this week</p>
           </motion.div>
         </motion.div>
       </div>

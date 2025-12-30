@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useRoomContext } from '@livekit/components-react';
 import { useSession } from '@/components/app/session-provider';
 import { SessionView } from '@/components/app/session-view';
@@ -9,7 +9,6 @@ import { WelcomeView } from '@/components/app/welcome-view';
 
 const MotionWelcomeView = motion.create(WelcomeView);
 const MotionSessionView = motion.create(SessionView);
-
 const VIEW_MOTION_PROPS = {
   variants: {
     visible: {
@@ -22,10 +21,6 @@ const VIEW_MOTION_PROPS = {
   initial: 'hidden',
   animate: 'visible',
   exit: 'hidden',
-  transition: {
-    duration: 0.5,
-    ease: 'linear',
-  },
 };
 
 export function ViewController() {
@@ -34,7 +29,9 @@ export function ViewController() {
   const { appConfig, isSessionActive, startSession } = useSession();
 
   // animation handler holds a reference to stale isSessionActive value
-  isSessionActiveRef.current = isSessionActive;
+  useEffect(() => {
+    isSessionActiveRef.current = isSessionActive;
+  }, [isSessionActive]);
 
   // disconnect room after animation completes
   const handleAnimationComplete = () => {
